@@ -73,7 +73,7 @@ Video
 
 This video shows the Salesforce Bulk API origin in action:
 
-[![YouTube video](http://img.youtube.com/vi/YkyBrmOz5P8/maxresdefault.jpg)](//www.youtube.com/watch?v=YkyBrmOz5P8)
+[![YouTube video](https://img.youtube.com/vi/l6wd92F9QwE/maxresdefault.jpg)](https://www.youtube.com/watch?v=l6wd92F9QwE)
 
 Future Work
 -----------
