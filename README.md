@@ -1,9 +1,9 @@
-StreamSets Data Collector Origin for the Salesforce Bulk API
-============================================================
+StreamSets Data Collector Origin for Force.com
+==============================================
 
-The StreamSets Salesforce Bulk API origin allows you to read data from Salesforce into StreamSets Data Collector (SDC). The origin uses the Bulk API to periodically run queries against Salesforce, in either incremental mode, by default using the `Id` system field to as an offset, or full mode, reading the entire dataset with each query.
+The StreamSets Force.com origin allows you to read data from Salesforce into StreamSets Data Collector (SDC). The origin uses the Bulk API to periodically run queries against Salesforce, in either incremental mode, by default using the `Id` system field to as an offset, or full mode, reading the entire dataset with each query.
 
-At the time of writing, the Salesforce Bulk API origin is in its early stages of development. Feel free to use it, and [report any issues](https://github.com/metadaddy/StreamSets-SalesforceBulkAPI/issues) that you might find.
+At the time of writing, the Force.com  origin is in its early stages of development. Feel free to use it, and [report any issues](https://github.com/metadaddy/StreamSets-ForceDotCom/issues) that you might find.
 
 Pre-requisites
 --------------
@@ -17,7 +17,7 @@ You will need the following:
 Installation
 ------------
 
-Download the [Salesforce Bulk API origin tarball](https://github.com/metadaddy/StreamSets-SalesforceBulkAPI/blob/master/target/force-lib-1.0-SNAPSHOT.jar?raw=true) and extract it in the SDC user-libs directory:
+Download the [Salesforce Force.com origin tarball](https://github.com/metadaddy/StreamSets-ForceDotCom/blob/master/target/force-lib-1.0-SNAPSHOT.jar?raw=true) and extract it in the SDC user-libs directory:
 
 	$ cd path-to-sdc/user-libs
 	$ tar xvfz force-lib-1.0-SNAPSHOT.jar
@@ -31,7 +31,7 @@ Configuration
 | Password | The password for your Salesforce org. For security, we recommend you store the password in a plain text file (no carriage return/newline) in SDC's `resources` directory and reference it as `${runtime:loadResource('wavePassword.txt',true)}` |
 | Auth Endpoint | Salesforce SOAP API Authentication Endpoint: `login.salesforce.com` for production/Developer Edition, `test.salesforce.com` for sandboxes |
 | API Version | Salesforce SOAP API Version. Defaults to the current version (36.0). |
-| Incremental Mode | Defines how the Salesforce Bulk API origin queries Salesforce. Select to perform incremental queries. Clear to perform full queries. Default is incremental mode. |
+| Incremental Mode | Defines how the Force.com origin queries Salesforce. Select to perform incremental queries. Clear to perform full queries. Default is incremental mode. |
 | SOQL Query | SOQL query to use when reading data from the database. The offset field (see below) must be listed first in both the `WHERE` and `ORDER BY` clauses.|
 | Initial Offset | Offset value to use when the pipeline starts. |
 | Offset Field | Field to use for the offset value. |
@@ -46,7 +46,7 @@ Since the origin calls out to Salesforce, you will need to add a section to the 
 Operation
 ---------
 
-Configure the Salesforce Bulk API origin as detailed above. Since the `Id` system field is automatically assigned in increasing order as each Salesforce record is created, it is ideal for use as the offset field. For example, to read Opportunity records, you might use a SOQL query such as:
+Configure the Force.com origin as detailed above. Since the `Id` system field is automatically assigned in increasing order as each Salesforce record is created, it is ideal for use as the offset field. For example, to read Opportunity records, you might use a SOQL query such as:
 
 	SELECT AccountId, Amount, CampaignId, CloseDate, CreatedById, 
 		CreatedDate, CurrentGenerators__c, 
@@ -71,7 +71,7 @@ Since this origin uses the Salesforce Bulk API, it is subject to the same [limit
 Video
 -----
 
-This video shows the Salesforce Bulk API origin in action:
+This video shows the Force.com origin in action:
 
 [![YouTube video](https://img.youtube.com/vi/l6wd92F9QwE/maxresdefault.jpg)](https://www.youtube.com/watch?v=l6wd92F9QwE)
 
