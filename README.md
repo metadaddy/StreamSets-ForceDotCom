@@ -17,7 +17,7 @@ You will need the following:
 Installation
 ------------
 
-Download the [Salesforce Force.com origin tarball](https://github.com/metadaddy/StreamSets-ForceDotCom/blob/master/target/force-lib-1.0-SNAPSHOT.jar?raw=true) and extract it in the SDC user-libs directory:
+Download the [Salesforce Force.com origin tarball](https://github.com/metadaddy/StreamSets-ForceDotCom/blob/master/target/force-lib-1.0-SNAPSHOT.tar.gz?raw=true) and extract it in the SDC user-libs directory:
 
 	$ cd path-to-sdc/user-libs
 	$ tar xvfz force-lib-1.0-SNAPSHOT.jar
