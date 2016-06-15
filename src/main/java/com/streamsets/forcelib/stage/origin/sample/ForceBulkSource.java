@@ -168,13 +168,8 @@ public abstract class ForceBulkSource extends BaseSource {
                 )
         );
       }
-    } catch (ConnectionException e) {
-      issues.add(
-              getContext().createConfigIssue(
-                      Groups.FORCE.name(), "connectorConfig", Errors.FORCE_00, e.getMessage()
-              )
-      );
-    } catch (AsyncApiException e) {
+    } catch (ConnectionException | AsyncApiException e) {
+      LOG.error("Error connecting: {}", e);
       issues.add(
               getContext().createConfigIssue(
                       Groups.FORCE.name(), "connectorConfig", Errors.FORCE_00, e.getMessage()
