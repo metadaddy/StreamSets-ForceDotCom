@@ -66,7 +66,16 @@ Configure the Force.com origin as detailed above. Since the `Id` system field is
 Caveats
 -------
 
-Since this origin uses the Salesforce Bulk API, it is subject to the same [limits and considerations](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_concepts_limits.htm), in particular governor limits and limitations on Bulk API queries. For example, the Bulk API can’t access or query compound address or compound geolocation fields.
+Since this origin uses the Salesforce Bulk API, it is subject to the same [limits and considerations](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_concepts_limits.htm), in particular governor limits and limitations on Bulk API queries.
+
+Note that, although the Bulk API can’t *directly* access or query compound address or compound geolocation fields (such as Account's `BillingAddress` field), you can access the *components* of compound fields thus:
+
+	SELECT Id, Name, BillingStreet, BillingCity, BillingState, 
+		BillingCountry, BillingPostalCode, BillingLatitude, 
+		BillingLongitude
+	FROM Account
+	WHERE Id > '${OFFSET}' 
+	ORDER BY Id
 
 Video
 -----
